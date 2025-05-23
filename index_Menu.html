@@ -2,73 +2,121 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>A-Frame. Imagen 360. Estado: Oaxaca. Material para la carrera de Turismo.
-    Elaborado por M.en C.C. Hernandez Santiago Jose</title>
+  <title>A-Frame. Imagen 360. Estado: Oaxaca.</title>
   <meta name="description" content="Imagen 360 como material educativo para la carrera de Turismo">
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 </head>
 <body>
   <a-scene>
-    <!-- Componente A-CAMERA para agregar una cámara con cursor amarillo -->
     <a-camera position="0 1.6 0">
       <a-cursor color="yellow" fuse="false"></a-cursor>
     </a-camera>
 
-    <!-- Componente A-ASSETS para agregar archivos, imagenes 2D para los portales e imagen 360 para el fondo -->
     <a-assets>
-      <img id="imagen360" src="https://cdn.glitch.com/7e51a8cd-127e-438a-8c9c-94ff03873167%2FOaxaca.jpg?v=1582147043391" crossorigin="anonymous"/>
+      <img id="imagen360" src="https://i.ibb.co/4RynX8Sp/Afuera-Talleres-Edificio-Gastro.jpg" crossorigin="anonymous"/>
       <img id="imagen1" src="https://cdn.aframe.io/examples/ui/kazetachinuPoster.jpg" crossorigin="anonymous"/>
       <img id="imagen2" src="https://cdn.aframe.io/examples/ui/ponyoPoster.jpg" crossorigin="anonymous"/>
       <img id="imagen3" src="https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg" crossorigin="anonymous"/>
     </a-assets>
 
-    <!-- Componente A-SKY para mostrar la imagen 360 para el fondo -->
     <a-sky src="#imagen360" rotation="0 -130 0"></a-sky>
+    <a-text font="kelsonsans" value="Área Principal" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
 
-    <!-- Componente A-TEXT para mostrar un mensaje -->
-    <a-text font="kelsonsans" value="Oaxaca" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+    <!-- 12 botones en una sola fila (alineados en el eje X) -->
+    <!-- Se alternan las imágenes para variedad -->
+    <!-- Posiciones de X van de -5.5 a +5.5 -->
 
-    <!-- Componente A-BOX para mostrar prismas rectangulares como Botones con enlaces -->
-    <a-box src="#imagen1" position="-1 1 -3" width="0.7" height="1" depth="0.1"
-           text="value: Enlace 1; color: blue; align: center"
-           class="clickable"
+    <a-box src="#imagen1" position="-5.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 1; color: blue; align: center" class="clickable"
            onclick="abrirEnlace(1)"
-           event-set__mouseenter="scale: 1.1 1.1 1.1"
-           event-set__mouseleave="scale: 1 1 1">
-    </a-box>
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
 
-    <a-box src="#imagen2" position="0 1 -3" width="0.7" height="1" depth="0.1"
-           text="value: Enlace 2; color: blue; align: center"
-           class="clickable"
+    <a-box src="#imagen2" position="-4.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 2; color: blue; align: center" class="clickable"
            onclick="abrirEnlace(2)"
-           event-set__mouseenter="scale: 1.5 1.5 1.5"
-           event-set__mouseleave="scale: 1 1 1">
-    </a-box>
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
 
-    <a-box src="#imagen3" position="1 1 -3" width="0.7" height="1" depth="0.1"
-           text="value: Enlace 3; color: blue; align: center"
-           class="clickable"
+    <a-box src="#imagen3" position="-3.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 3; color: blue; align: center" class="clickable"
            onclick="abrirEnlace(3)"
-           event-set__mouseenter="scale: 1.5 1.5 1.5"
-           event-set__mouseleave="scale: 1 1 1">
-    </a-box>
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen1" position="-2.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 4; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(4)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen2" position="-1.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 5; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(5)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen3" position="-0.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 6; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(6)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen1" position="0.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 7; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(7)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen2" position="1.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 8; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(8)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen3" position="2.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 9; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(9)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen1" position="3.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 10; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(10)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen2" position="4.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 11; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(11)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
+    <a-box src="#imagen3" position="5.5 1 -4" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 12; color: blue; align: center" class="clickable"
+           onclick="abrirEnlace(12)"
+           event-set__mouseenter="scale: 1.2 1.2 1.2"
+           event-set__mouseleave="scale: 1 1 1"></a-box>
+
   </a-scene>
 
-  <!-- Bloque SCRIPT para incluir código en Java Script -->
+  <!-- SCRIPT para redireccionar -->
   <script>
     function abrirEnlace(opc) {
-      switch(opc){ //Se verifica el numero de botón
-        case 1:
-          // Aquí se especifica la URL para redirigir la página web
-          window.location.href = "index_Francia.html";
-          break;
-        case 2:
-          window.location.href = "https://aframe.io/";
-          break;
-        case 3:
-          window.location.href = "https://aframe.io/examples/showcase/modelviewer/";
-          break;
-      } // Fin del switch
+      switch(opc) {
+        case 1: window.location.href = "enlace1.html"; break;
+        case 2: window.location.href = "enlace2.html"; break;
+        case 3: window.location.href = "enlace3.html"; break;
+        case 4: window.location.href = "enlace4.html"; break;
+        case 5: window.location.href = "enlace5.html"; break;
+        case 6: window.location.href = "enlace6.html"; break;
+        case 7: window.location.href = "enlace7.html"; break;
+        case 8: window.location.href = "enlace8.html"; break;
+        case 9: window.location.href = "enlace9.html"; break;
+        case 10: window.location.href = "enlace10.html"; break;
+        case 11: window.location.href = "enlace11.html"; break;
+        case 12: window.location.href = "enlace12.html"; break;
+      }
     }
   </script>
 </body>
