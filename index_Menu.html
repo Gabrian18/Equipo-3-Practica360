@@ -12,6 +12,7 @@
       <a-cursor color="yellow" fuse="false"></a-cursor>
     </a-camera>
 
+ <!-- Poner URL de las imagenes (posters) -->
     <a-assets>
       <img id="imagen360" src="https://i.ibb.co/4RynX8Sp/Afuera-Talleres-Edificio-Gastro.jpg" crossorigin="anonymous"/>
       <img id="imagen1" src="https://cdn.aframe.io/examples/ui/kazetachinuPoster.jpg" crossorigin="anonymous"/>
@@ -25,9 +26,11 @@
       <img id="imagen9" src="URL9" crossorigin="anonymous"/>
     </a-assets>
 
+ <!-- El SKY es la imagen 360 de fondo -->
     <a-sky src="#imagen360" rotation="0 -130 0"></a-sky>
     <a-text font="kelsonsans" value="Área Principal" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
 
+ <!-- posicion de los posters en grados -->
     <script>
       const radius = 5;
       const anglesDeg = [40, 55, 70, 90, 120, 150, 175, 218, 330]; // Posiciones personalizadas
@@ -56,7 +59,7 @@
     </script>
   </a-scene>
 
-  <!-- SCRIPT para redireccionar -->
+  <!-- SCRIPT para redireccionar al hacer clic y mandar a las imagenes 360 -->
   <script>
     function abrirEnlace(opc) {
       switch(opc) {
@@ -68,7 +71,7 @@
         case 6: window.location.href = "dibujo-y-pintura.html"; break;
         case 7: window.location.href = "danza.html"; break;
         case 8: window.location.href = "futbol-rapido.html"; break;
-        case 9: window.location.href = ".html"; break;
+        case 9: window.location.href = "index_Menu_Gastro.html"; break;
       }
     }
   </script>

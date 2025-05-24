@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A-Frame Menu de Gastronomia</title>
+  <meta name="description" content="Imagen 360 del Edificio de Gastronomia">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Componente A-CAMERA para agregar una cámara con cursor amarillo -->
+    <a-camera position="0 1.6 0">
+      <a-cursor color="yellow" fuse="false"></a-cursor>
+    </a-camera>
+
+    <!-- Componente A-ASSETS para agregar archivos, imagenes 2D para los portales e imagen 360 para el fondo -->
+    <a-assets>
+      <img id="imagen360" src="https://i.ibb.co/hxYwnwv7/Piso1-Edificio-Gastro.jpg" crossorigin="anonymous"/>
+      <img id="imagen1" src="https://cdn.aframe.io/examples/ui/kazetachinuPoster.jpg" crossorigin="anonymous"/>
+      <img id="imagen2" src="https://cdn.aframe.io/examples/ui/ponyoPoster.jpg" crossorigin="anonymous"/>
+    </a-assets>
+
+    <!-- Componente A-SKY para mostrar la imagen 360 para el fondo -->
+    <a-sky src="#imagen360" rotation="0 -130 0"></a-sky>
+
+    <!-- Componente A-TEXT para mostrar un mensaje -->
+    <a-text font="kelsonsans" value="Planta Baja Gastronomia" width="6" position="-2.5 0.25 -1.5" rotation="0 15 0"></a-text>
+
+    <!-- Componente A-BOX para mostrar prismas rectangulares como Botones con enlaces -->
+    <a-box src="#imagen1" position="-2 1 -3" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 1; color: blue; align: center"
+           class="clickable"
+           onclick="abrirEnlace(1)"
+           event-set__mouseenter="scale: 1.1 1.1 1.1"
+           event-set__mouseleave="scale: 1 1 1">
+    </a-box>
+
+    <a-box src="#imagen2" position="0 1 -3" width="0.7" height="1" depth="0.1"
+           text="value: Enlace 2; color: blue; align: center"
+           class="clickable"
+           onclick="abrirEnlace(2)"
+           event-set__mouseenter="scale: 1.5 1.5 1.5"
+           event-set__mouseleave="scale: 1 1 1">
+    </a-box>
+  </a-scene>
+
+  <!-- Bloque SCRIPT para incluir código en Java Script -->
+  <script>
+    function abrirEnlace(opc) {
+      switch(opc){ //Se verifica el numero de botón
+        case 1:
+          // Aquí se especifica la URL para redirigir la página web
+          window.location.href = "segundo-piso-gastro.html";
+          break;
+        case 2:
+          window.location.href = "azotea-gastro.html";
+          break;
+      } // Fin del switch
+    }
+  </script>
+</body>
+</html>
