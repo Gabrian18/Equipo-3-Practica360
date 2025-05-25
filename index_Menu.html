@@ -21,7 +21,7 @@
       <img id="imagen4" src="URL4" crossorigin="anonymous"/>
       <img id="imagen5" src="URL5" crossorigin="anonymous"/>
       <img id="imagen6" src="URL6" crossorigin="anonymous"/>
-      <img id="imagen7" src="URL7" crossorigin="anonymous"/>
+      <img id="imagen7" src="https://i.ibb.co/h1h2zJXr/Untitled125.png" crossorigin="anonymous"/>
       <img id="imagen8" src="URL8" crossorigin="anonymous"/>
       <img id="imagen9" src="URL9" crossorigin="anonymous"/>
     </a-assets>
@@ -46,10 +46,10 @@
         const box = document.createElement("a-box");
         box.setAttribute("position", `${x} 1.5 ${-z}`);
         box.setAttribute("rotation", `0 ${rotationY} 0`);
-        box.setAttribute("width", "0.7");
+        box.setAttribute("width", "1");
         box.setAttribute("height", "1");
         box.setAttribute("depth", "0.1");
-        box.setAttribute("src", images[i % images.length]);
+        box.setAttribute("material", "src: " + images[i % images.length] + "; transparent: true");
         box.setAttribute("text", `value: Enlace ${i + 1}; color: blue; align: center`);
         box.setAttribute("class", "clickable");
         box.setAttribute("onclick", `abrirEnlace(${i + 1})`);
