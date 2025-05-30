@@ -1,16 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>360&deg; Image</title>
-    <meta name="description" content="360&deg; Image - A-Frame">
+    <meta name="description" content="360&deg; Image - A-Frame" />
     <script src="aframe-master.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-sky src="https://i.ibb.co/FLhKYshY/Piso2-Edificio-Gastro.jpg" rotation="0 -130 0"></a-sky>
-      <a-text font="kelsonsans" value="Segundo Piso Gastronomia" width="6" position="-2.5 0.25 -1.5"
-              rotation="0 15 0"></a-text>
+      <a-camera position="0 1.6 0">
+        <a-cursor color="yellow" fuse="false"></a-cursor>
+      </a-camera>
+
+      <a-assets>
+        <!-- Imagen PNG con transparencia para primer botón -->
+        <img
+          id="imagenBoton"
+          src="https://i.ibb.co/938BSrQh/edificio-gastro.png"
+          crossorigin="anonymous"
+        />
+        <!-- Imagen para segundo botón -->
+        <img
+          id="imagenBoton2"
+          src="https://i.ibb.co/3P8HLWg/azotea.png"  
+          crossorigin="anonymous"
+        />
+      </a-assets>
+
+      <a-sky
+        src="https://i.ibb.co/FLhKYshY/Piso2-Edificio-Gastro.jpg"
+        rotation="0 -130 0"
+      ></a-sky>
+
+      <a-text
+        font="kelsonsans"
+        value="Segundo Piso Gastronomia"
+        width="6"
+        position="-2.5 0.25 -1.5"
+        rotation="0 15 0"
+      ></a-text>
+
+      <script>
+        const escena = document.querySelector("a-scene");
+        const radio = 5;
+
+        // Primer botón
+        const angulo1 = 290;
+        const anguloRadianes1 = angulo1 * (Math.PI / 180);
+        const x1 = radio * Math.sin(anguloRadianes1);
+        const z1 = radio * Math.cos(anguloRadianes1);
+        const rotY1 = -angulo1 + 180;
+
+        const boton1 = document.createElement("a-image");
+        boton1.setAttribute("src", "#imagenBoton");
+        boton1.setAttribute("position", `${x1} 0 ${-z1}`);
+        boton1.setAttribute("rotation", `0 ${rotY1} 0`);
+        boton1.setAttribute("width", "1");
+        boton1.setAttribute("height", "1");
+        boton1.setAttribute("transparent", "true");
+        boton1.setAttribute("class", "clickable");
+        boton1.addEventListener("click", () => {
+          window.location.href = "index_Menu_Gastro.html";
+        });
+        escena.appendChild(boton1);
+
+        // Segundo botón 
+        const angulo2 = -40;
+        const anguloRadianes2 = angulo2 * (Math.PI / 180);
+        const x2 = radio * Math.sin(anguloRadianes2);
+        const z2 = radio * Math.cos(anguloRadianes2);
+        const rotY2 = -angulo2 + 180;
+
+        const boton2 = document.createElement("a-image");
+        boton2.setAttribute("src", "#imagenBoton2"); // Aquí la imagen diferente
+        boton2.setAttribute("position", `${x2} 3 ${-z2}`);
+        boton2.setAttribute("rotation", `0 ${rotY2} 0`);
+        boton2.setAttribute("width", "1");
+        boton2.setAttribute("height", "1");
+        boton2.setAttribute("transparent", "true");
+        boton2.setAttribute("class", "clickable");
+        boton2.addEventListener("click", () => {
+          window.location.href = "azotea-gastro.html";
+        });
+        escena.appendChild(boton2);
+      </script>
     </a-scene>
   </body>
 </html>

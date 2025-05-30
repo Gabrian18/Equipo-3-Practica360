@@ -8,9 +8,47 @@
   </head>
   <body>
     <a-scene>
-      <a-sky src="https://i.ibb.co/4ZfGsnX7/Estacionamiento.jpg" rotation="0 -130 0"></a-sky>
-      <a-text font="kelsonsans" value="Estacionamiento" width="6" position="-2.5 0.25 -1.5"
-              rotation="0 15 0"></a-text>
+      <a-camera position="0 1.6 0">
+        <a-cursor color="yellow" fuse="false"></a-cursor>
+      </a-camera>
+
+      <a-assets>
+        <!-- Imagen PNG con transparencia -->
+        <img id="imagenBoton" src="https://i.ibb.co/9xQXF5S/Boton-Regresar.png" crossorigin="anonymous"/>
+      </a-assets>
+
+      <a-sky src="https://i.ibb.co/4ZfGsnX7/Estacionamiento.jpg" rotation="0 30 0"></a-sky>
+
+      <a-text font="kelsonsans" value="Estacionamiento" width="10" position="1.5 1.5 -8" rotation="0 330 0"></a-text>
+
+      <!-- Botón dinámico con posición por ángulo -->
+      <script>
+        // Ángulo en grados y radio de distancia desde el centro
+        const anguloGrados = 240;
+        const radio = 5;
+
+        const anguloRadianes = anguloGrados * (Math.PI / 180);
+        const x = radio * Math.sin(anguloRadianes);
+        const z = radio * Math.cos(anguloRadianes);
+        const rotY = -anguloGrados + 180;
+
+        const escena = document.querySelector("a-scene");
+        const boton = document.createElement("a-image");
+
+        boton.setAttribute("src", "#imagenBoton");
+        boton.setAttribute("position", `${x} 1.5 ${-z}`);
+        boton.setAttribute("rotation", `0 ${rotY} 0`);
+        boton.setAttribute("width", "1");
+        boton.setAttribute("height", "1");
+        boton.setAttribute("transparent", "true");
+        boton.setAttribute("class", "clickable");
+
+        boton.addEventListener("click", () => {
+          window.location.href = "index.html";
+        });
+
+        escena.appendChild(boton);
+      </script>
     </a-scene>
   </body>
 </html>
